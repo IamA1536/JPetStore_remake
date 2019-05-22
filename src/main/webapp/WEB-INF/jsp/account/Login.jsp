@@ -20,9 +20,9 @@
                     <a id="btn" href="">
                         <small>change to another one</small>
                     </a>
-                    <font color="red">
+                    <span style="color: red; ">
                         ${session.imageMess}
-                    </font>
+                    </span>
                     <br/>
                 </td>
             </tr>

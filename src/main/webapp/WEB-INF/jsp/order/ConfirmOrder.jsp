@@ -38,23 +38,23 @@
         </tr>
         <tr>
             <td>Address 2:</td>
-            <td><s:property value="#sessionScope.order.billAddress2"/></td>
+            <td><s:property value="#session.order.billAddress2"/></td>
         </tr>
         <tr>
             <td>City:</td>
-            <td><s:property value="#sessionScope.order.billCity"/></td>
+            <td><s:property value="#session.order.billCity"/></td>
         </tr>
         <tr>
             <td>State:</td>
-            <td><s:property value="#sessionScope.order.billState"/></td>
+            <td><s:property value="#session.order.billState"/></td>
         </tr>
         <tr>
             <td>Zip:</td>
-            <td><s:property value="#sessionScope.order.billZip"/></td>
+            <td><s:property value="#session.order.billZip"/></td>
         </tr>
         <tr>
             <td>Country:</td>
-            <td><s:property value="#sessionScope.order.billCountry"/></td>
+            <td><s:property value="#session.order.billCountry"/></td>
         </tr>
         <tr>
             <th colspan="2">Shipping Address</th>
@@ -65,31 +65,31 @@
         </tr>
         <tr>
             <td>Last name:</td>
-            <td><s:property value="${session.order.shipToLastName}"/></td>
+            <td><s:property value="#session.order.shipToLastName"/></td>
         </tr>
         <tr>
             <td>Address 1:</td>
-            <td><s:property value="${session.order.shipAddress1}"/></td>
+            <td><s:property value="#session.order.shipAddress1"/></td>
         </tr>
         <tr>
             <td>Address 2:</td>
-            <td><s:property value="${session.order.shipAddress2}"/></td>
+            <td><s:property value="#session.order.shipAddress2"/></td>
         </tr>
         <tr>
             <td>City:</td>
-            <td><s:property value="${session.order.shipCity}"/></td>
+            <td><s:property value="#session.order.shipCity"/></td>
         </tr>
         <tr>
             <td>State:</td>
-            <td><s:property value="${session.order.shipState}"/></td>
+            <td><s:property value="#session.order.shipState"/></td>
         </tr>
         <tr>
             <td>Zip:</td>
-            <td><s:property value="${session.order.shipZip}"/></td>
+            <td><s:property value="#session.order.shipZip"/></td>
         </tr>
         <tr>
             <td>Country:</td>
-            <td><s:property value="${session.order.shipCountry}"/></td>
+            <td><s:property value="#session.order.shipCountry"/></td>
         </tr>
 
     </table>

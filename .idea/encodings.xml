@@ -3,7 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/teamwork/jpetstore/persistence/DBUtil.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/IncludeAccountFields.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account/IncludeAccountFields.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/js/LoginForm.js" charset="GBK" />
   </component>
 </project>

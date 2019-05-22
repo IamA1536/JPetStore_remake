@@ -21,6 +21,7 @@ public class CatalogAction implements Action {
     Map session = actionContext.getSession();
     private String productId;
     private String categoryId;
+    private String keyword;
 
 
     @Override
@@ -60,11 +61,27 @@ public class CatalogAction implements Action {
         return INPUT;
     }
 
+    public String search(){
+        CatalogSerivce service = new CatalogSerivce();
+        try {
+            List<Product> productList = service.searchProductList(keyword);
+            session.put("productList", productList);
+            return SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return INPUT;
+    }
+
     public void setProductId(String productId) {
         this.productId = productId;
     }
 
     public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 }

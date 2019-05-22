@@ -9,10 +9,10 @@
                 <td><input id="UserName" type="text" name="username"/>
                 </td>
                 <td style="">
-                    <font color="#FF0000">
+                    <span style="color: #FF0000; ">
                         <small id="UserError">
                         </small>
-                    </font>
+                    </span>
                 </td>
             </tr>
             <tr>
@@ -20,10 +20,10 @@
                 <td><input id="Pw" type="password" name="password"/>
                 </td>
                 <td>
-                    <font color="#FF0000">
+                    <span style="color: #FF0000; ">
                         <small id="PwError">
                         </small>
-                    </font>
+                    </span>
                 </td>
             </tr>
             <tr>
@@ -31,10 +31,10 @@
                 <td><input id="RepeatPw" type="password" name="repeat_password"/>
                 </td>
                 <td>
-                    <font color="#FF0000">
+                    <span style="color: #FF0000; ">
                         <small id="RepeatPwError">
                         </small>
-                    </font>
+                    </span>
                 </td>
             </tr>
         </table>

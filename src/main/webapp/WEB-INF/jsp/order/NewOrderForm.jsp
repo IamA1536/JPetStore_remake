@@ -1,7 +1,7 @@
 <%@ include file="../common/IncludeTop.jsp" %>
 
 <div id="Catalog">
-    <form action="#" method="post">
+    <form action="confirmorder" method="post">
         <table>
             <tr>
                 <th colspan=2>Payment Details</th>
@@ -9,7 +9,7 @@
             <tr>
                 <td>Card Type:</td>
                 <td>
-                    <select name="cardtype">
+                    <select name="cardType">
                         <option selected="selected" value="Visa">Visa</option>
                         <option value="MasterCard">MasterCard</option>
                         <option value="American Express">American Express</option>
@@ -18,11 +18,11 @@
             </tr>
             <tr>
                 <td>Credit Card:</td>
-                <td><input name="creditcard" value="000 0000 0000 0000" type="text"></td>
+                <td><input name="creditCard" value="000 0000 0000 0000" type="text"></td>
             </tr>
             <tr>
                 <td>Expiry Date:</td>
-                <td><input name="expirydate" value="12/03" type="text"></td>
+                <td><input name="expiryDate" value="12/03" type="text"></td>
             </tr>
             <tr>
                 <th colspan=2>Billing Address</th>
@@ -30,35 +30,35 @@
 
             <tr>
                 <td>First name:</td>
-                <td><input type="text" name="billtofirstName" value="${session.account.firstName}"/></td>
+                <td><input type="text" name="billToFirstName" value="${session.account.firstName}"/></td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td><input type="text" name="billtolastName" value="${session.account.lastName}"/></td>
+                <td><input type="text" name="billToLastName" value="${session.account.lastName}"/></td>
             </tr>
             <tr>
                 <td>Address 1:</td>
-                <td><input type="text" size="40" name="billaddress1" value="${session.account.address1}"/></td>
+                <td><input type="text" size="40" name="billAddress1" value="${session.account.address1}"/></td>
             </tr>
             <tr>
                 <td>Address 2:</td>
-                <td><input type="text" size="40" name="billaddress2" value="${session.account.address2}"/></td>
+                <td><input type="text" size="40" name="billAddress2" value="${session.account.address2}"/></td>
             </tr>
             <tr>
                 <td>City:</td>
-                <td><input type="text" name="billcity" value="${session.account.city}"/></td>
+                <td><input type="text" name="billCity" value="${session.account.city}"/></td>
             </tr>
             <tr>
                 <td>State:</td>
-                <td><input type="text" size="4" name="billstate" value="${session.account.state}"/></td>
+                <td><input type="text" size="4" name="billState" value="${session.account.state}"/></td>
             </tr>
             <tr>
                 <td>Zip:</td>
-                <td><input type="text" size="10" name="billzip" value="${session.account.zip}"/></td>
+                <td><input type="text" size="10" name="billZip" value="${session.account.zip}"/></td>
             </tr>
             <tr>
                 <td>Country:</td>
-                <td><input type="text" size="15" name="billcountry" value="${session.account.country}"/></td>
+                <td><input type="text" size="15" name="billCountry" value="${session.account.country}"/></td>
             </tr>
             <tr class="ship">
                 <td colspan=2>
@@ -74,35 +74,35 @@
             </tr>
             <tr>
                 <td>First name:</td>
-                <td><input type="text" name="shiptofirstName" value="${session.order.shipToFirstName}"/></td>
+                <td><input type="text" name="shipToFirstName" value="${session.order.shipToFirstName}"/></td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td><input type="text" name="shiptolastName" value="${session.order.shipToLastName}"/></td>
+                <td><input type="text" name="shipToLastName" value="${session.order.shipToLastName}"/></td>
             </tr>
             <tr>
                 <td>Address 1:</td>
-                <td><input type="text" size="40" name="shipaddress1" value="${session.account.address1}"/></td>
+                <td><input type="text" size="40" name="shipAddress1" value="${session.account.address1}"/></td>
             </tr>
             <tr>
                 <td>Address 2:</td>
-                <td><input type="text" size="40" name="shipaddress2" value="${session.account.address2}"/></td>
+                <td><input type="text" size="40" name="shipAddress2" value="${session.account.address2}"/></td>
             </tr>
             <tr>
                 <td>City:</td>
-                <td><input type="text" name="shipcity" value="${session.account.city}"/></td>
+                <td><input type="text" name="shipCity" value="${session.account.city}"/></td>
             </tr>
             <tr>
                 <td>State:</td>
-                <td><input type="text" size="4" name="shipstate" value="${session.account.state}"/></td>
+                <td><input type="text" size="4" name="shipState" value="${session.account.state}"/></td>
             </tr>
             <tr>
                 <td>Zip:</td>
-                <td><input type="text" size="10" name="shipzip" value="${session.account.zip}"/></td>
+                <td><input type="text" size="10" name="shipZip" value="${session.account.zip}"/></td>
             </tr>
             <tr>
                 <td>Country:</td>
-                <td><input type="text" size="15" name="shipcountry" value="${session.account.country}"/></td>
+                <td><input type="text" size="15" name="shipCountry" value="${session.account.country}"/></td>
             </tr>
         </table>
 

@@ -19,6 +19,10 @@ public class AccountService {
         return accountDAO.getAccountByUsername(username);
     }
 
+    public Account getAccount(Account account) throws Exception {
+        return accountDAO.getAccountByUsernameAndPassword(account);
+    }
+
     public Account getAccount(String username, String password) throws Exception {
         Account account = new Account();
         account.setUsername(username);

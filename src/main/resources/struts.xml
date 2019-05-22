@@ -13,6 +13,16 @@
             <result type="dispatcher" name="input">/WEB-INF/jsp/account/Login.jsp</result>
             <result type="dispatcher" name="success">/WEB-INF/jsp/catalog/Main.jsp</result>
         </action>
+        <action name="newaccountform" class="org.teamwork.jpetstore.action.AccountAction" method="newaccountform">
+            <result type="dispatcher" name="success">/WEB-INF/jsp/catalog/Main.jsp</result>
+            <result type="dispatcher" name="input">/WEB-INF/jsp/account/NewAccountForm.jsp</result>
+        </action>
+        <action name="usenameisexist" class="org.teamwork.jpetstore.util.ToolsAction" method="usenameisexist">
+            <result type="plainText" name="input">help.html</result>
+        </action>
+        <action name="editaccountform" class="org.teamwork.jpetstore.action.AccountAction" method="editaccountform">
+            <result type="dispatcher" name="success">/WEB-INF/jsp/account/EditAccountForm.jsp</result>
+        </action>
         <action name="main" class="org.teamwork.jpetstore.action.CatalogAction" method="main">
             <result type="dispatcher" name="input">/WEB-INF/jsp/catalog/Main.jsp</result>
         </action>
@@ -29,6 +39,10 @@
         <action name="vproduct" class="org.teamwork.jpetstore.action.CatalogAction" method="product">
             <result type="dispatcher" name="success">/WEB-INF/jsp/catalog/Product.jsp</result>
         </action>
+        <action name="vcart" class="org.teamwork.jpetstore.action.CartAction" method="vcart">
+            <result type="dispatcher" name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
+            <result type="dispatcher" name="error">/WEB-INF/jsp/common/Error.jsp</result>
+        </action>
         <action name="AddItemToCart" class="org.teamwork.jpetstore.action.CartAction" method="AddItemToCart">
             <result type="dispatcher" name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
             <result type="dispatcher" name="error">/WEB-INF/jsp/common/Error.jsp</result>
@@ -42,7 +56,20 @@
             <result type="dispatcher" name="input">/WEB-INF/jsp/catalog/Main.jsp</result>
         </action>
         <action name="neworderform" class="org.teamwork.jpetstore.action.OrderAction" method="neworderform">
-            <result type="dispatcher" name="input">/WEB-INF/jsp/order/NewOrderForm.jsp</result>
+            <result type="dispatcher" name="error">/WEB-INF/jsp/common/Error.jsp</result>
+            <result type="dispatcher" name="success">/WEB-INF/jsp/order/NewOrderForm.jsp</result>
+        </action>
+        <action name="confirmorder" class="org.teamwork.jpetstore.action.OrderAction" method="confirmorder">
+            <result type="dispatcher" name="success">/WEB-INF/jsp/order/ConfirmOrder.jsp</result>
+        </action>
+        <action name="vorder" class="org.teamwork.jpetstore.action.OrderAction" method="vorder">
+            <result type="dispatcher" name="success">/WEB-INF/jsp/order/ViewOrder.jsp</result>
+        </action>
+        <action name="listorders" class="org.teamwork.jpetstore.action.OrderAction" method="listorders">
+            <result type="dispatcher" name="input">/WEB-INF/jsp/order/ListOrders.jsp</result>
+        </action>
+        <action name="search" class="org.teamwork.jpetstore.action.CatalogAction" method="search">
+            <result  type="dispatcher" name="success">/WEB-INF/jsp/catalog/SearchProducts.jsp</result>
         </action>
     </package>
 </struts>

@@ -6,7 +6,7 @@
         <table>
             <tr>
                 <td>User ID:</td>
-                <td>${sessionScope.account.username}</td>
+                <td>${session.account.username}</td>
             </tr>
             <tr>
                 <td>New password:</td>
@@ -21,7 +21,7 @@
         <%@ include file="IncludeAccountFields.jsp" %>
         <input id="Sub" type="submit" name="editAccount" value="Save Account Information"/>
     </form>
-    <a href="listorders?account=${sessionScope.account}">My Orders</a>
+    <a href="listorders">My Orders</a>
 </div>
 <script src="js/EditAccount.js"></script>
 <%@ include file="../common/IncludeBottom.jsp" %>
