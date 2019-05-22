@@ -6,21 +6,23 @@
         <p>
             <tr>
                 <td>
-                    Username:<input type="text" name="account.username" value=""><br/>
+                    Username:<input type="text" name="username" value=""><br/>
                 </td>
                 <td>
-                    Password:<input type="password" name="account.password" value=""><br/>
+                    Password:<input type="password" name="password" value=""><br/>
                 </td>
                 <td>
-                    VerifyCode:<input type="text" name="image">
+                    VerifyCode:<input type="text" name="vcstring">
                     <br/>
                     <%--<img src="img/vc.gif">--%>
-                    <img src="verifycode">
+                    <img src="securityCode.action" onclick="">
                     <%--<br/>--%>
                     <a id="btn" href="">
                         <small>change to another one</small>
                     </a>
-                    <font color="red">${requestScope.imageMess}</font>
+                    <font color="red">
+                        ${session.imageMess}
+                    </font>
                     <br/>
                 </td>
             </tr>

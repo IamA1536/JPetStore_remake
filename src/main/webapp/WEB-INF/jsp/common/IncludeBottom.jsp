@@ -13,11 +13,11 @@
     </div>
 
     <div id="Banner">
-        <c:if test="${sessionScope.account != null }">
-                <c:if test="${sessionScope.account.bannerOption}">
-                    ${sessionScope.account.bannerName}
-                </c:if>
-        </c:if>
+        <s:if test="#session.account != null }">
+                <s:if test="#sessionScope.account.bannerOption">
+                    ${session.account.bannerName}
+                </s:if>
+        </s:if>
     </div>
 
 </div>

@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td>Repeat password*:</td>
-                <td><input id="RepeatPw" type="password"/>
+                <td><input id="RepeatPw" type="password" name="repeat_password"/>
                 </td>
                 <td>
                     <font color="#FF0000">

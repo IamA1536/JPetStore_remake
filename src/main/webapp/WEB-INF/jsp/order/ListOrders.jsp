@@ -9,10 +9,10 @@
         <th>Total Price</th>
     </tr>
 
-    <c:forEach var="order" items="${sessionScope.orderList}">
+    <s:iterator var="order" value="#session.orderList">
         <tr>
             <td>
-                <a href="vorder?account=${sessionScope.account}&order=${order}">
+                <a href="vorder?order=${order}">
                         ${order.orderId}
                 </a>
             </td>
@@ -21,7 +21,7 @@
             <td><fmt:formatNumber value="${order.totalPrice}"
                                   pattern="$#,##0.00"/></td>
         </tr>
-    </c:forEach>
+    </s:iterator>
 </table>
 
 <%@ include file="../common/IncludeBottom.jsp" %>

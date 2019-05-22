@@ -5,21 +5,21 @@
 </div>
 <div id="Catalog">
 
-    <h2>${sessionScope.category.name}</h2>
+    <h2>${session.category.name}</h2>
 
     <table>
         <tr>
             <th>Product ID</th>
             <th>Name</th>
         </tr>
-        <c:forEach var="product" items="${sessionScope.productList}">
+        <s:iterator var="product" value="#session.productList">
             <tr>
                 <td>
-                    <a href="vproduct?productId=${product.productId}&account=${sessionScope.account}">${product.productId}</a>
+                    <a href="vproduct?productId=${product.productId}">${product.productId}</a>
                 </td>
                 <td>${product.name}</td>
             </tr>
-        </c:forEach>
+        </s:iterator>
     </table>
 
 </div>

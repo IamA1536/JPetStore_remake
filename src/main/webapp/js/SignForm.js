@@ -155,6 +155,8 @@ function check() {
     }
 }
 
+
+
 $(document).ready(function () {
     $(this).click(function () {
         $("#warning").toggle("highlight")

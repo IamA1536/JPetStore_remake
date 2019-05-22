@@ -1,6 +1,6 @@
 <%@ include file="../common/IncludeTop.jsp" %>
 
-${sessionScope.message}
-<a href="main?account=${sessionScope.account}">Return to main</a>
+${session.message}
+<a href="main">Return to main</a>
 
 <%@ include file="../common/IncludeBottom.jsp" %>

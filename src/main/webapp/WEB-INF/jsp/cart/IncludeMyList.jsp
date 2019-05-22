@@ -11,5 +11,4 @@
 		</stripes:link> (${product.productId})</li>
 		</c:forEach>
 	</ul>
-
 </c:if>

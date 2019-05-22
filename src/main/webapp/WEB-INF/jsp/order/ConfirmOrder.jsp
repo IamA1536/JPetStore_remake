@@ -10,10 +10,14 @@
 
     <table>
         <tr>
-            <th align="center" colspan="2"><font size="4"><b>Order</b></font>
+            <th align="center" colspan="2"><span style="font-size: medium; "><b>Order</b></span>
                 <br/>
-                <font size="3"><b> <fmt:formatDate
-                        value="${sessionScope.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss"/></b></font>
+                <span style="font-size: small; ">
+                    <b>
+                    <fmt:formatDate
+                            value="${session.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss"/>
+                    </b>
+                </span>
             </th>
         </tr>
 
@@ -22,75 +26,75 @@
         </tr>
         <tr>
             <td>First name:</td>
-            <td><c:out value="${sessionScope.order.billToFirstName}"/></td>
+            <td><s:property value="#session.order.billToFirstName"/></td>
         </tr>
         <tr>
             <td>Last name:</td>
-            <td><c:out value="${sessionScope.order.billToLastName}"/></td>
+            <td><s:property value="#session.order.billToLastName"/></td>
         </tr>
         <tr>
             <td>Address 1:</td>
-            <td><c:out value="${sessionScope.order.billAddress1}"/></td>
+            <td><s:property value="#session.order.billAddress1"/></td>
         </tr>
         <tr>
             <td>Address 2:</td>
-            <td><c:out value="${sessionScope.order.billAddress2}"/></td>
+            <td><s:property value="#sessionScope.order.billAddress2"/></td>
         </tr>
         <tr>
             <td>City:</td>
-            <td><c:out value="${sessionScope.order.billCity}"/></td>
+            <td><s:property value="#sessionScope.order.billCity"/></td>
         </tr>
         <tr>
             <td>State:</td>
-            <td><c:out value="${sessionScope.order.billState}"/></td>
+            <td><s:property value="#sessionScope.order.billState"/></td>
         </tr>
         <tr>
             <td>Zip:</td>
-            <td><c:out value="${sessionScope.order.billZip}"/></td>
+            <td><s:property value="#sessionScope.order.billZip"/></td>
         </tr>
         <tr>
             <td>Country:</td>
-            <td><c:out value="${sessionScope.order.billCountry}"/></td>
+            <td><s:property value="#sessionScope.order.billCountry"/></td>
         </tr>
         <tr>
             <th colspan="2">Shipping Address</th>
         </tr>
         <tr>
             <td>First name:</td>
-            <td><c:out value="${sessionScope.order.shipToFirstName}"/></td>
+            <td><s:property value="#session.order.shipToFirstName"/></td>
         </tr>
         <tr>
             <td>Last name:</td>
-            <td><c:out value="${sessionScope.order.shipToLastName}"/></td>
+            <td><s:property value="${session.order.shipToLastName}"/></td>
         </tr>
         <tr>
             <td>Address 1:</td>
-            <td><c:out value="${sessionScope.order.shipAddress1}"/></td>
+            <td><s:property value="${session.order.shipAddress1}"/></td>
         </tr>
         <tr>
             <td>Address 2:</td>
-            <td><c:out value="${sessionScope.order.shipAddress2}"/></td>
+            <td><s:property value="${session.order.shipAddress2}"/></td>
         </tr>
         <tr>
             <td>City:</td>
-            <td><c:out value="${sessionScope.order.shipCity}"/></td>
+            <td><s:property value="${session.order.shipCity}"/></td>
         </tr>
         <tr>
             <td>State:</td>
-            <td><c:out value="${sessionScope.order.shipState}"/></td>
+            <td><s:property value="${session.order.shipState}"/></td>
         </tr>
         <tr>
             <td>Zip:</td>
-            <td><c:out value="${sessionScope.order.shipZip}"/></td>
+            <td><s:property value="${session.order.shipZip}"/></td>
         </tr>
         <tr>
             <td>Country:</td>
-            <td><c:out value="${sessionScope.order.shipCountry}"/></td>
+            <td><s:property value="${session.order.shipCountry}"/></td>
         </tr>
 
     </table>
 
-    <a class="Button" href="vorder?account=${sessionScope.account}&order=${sessionScope.order}">
+    <a class="Button" href="vorder">
         Confirm
     </a>
 </div>

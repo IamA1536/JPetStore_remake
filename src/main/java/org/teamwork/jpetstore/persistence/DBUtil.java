@@ -9,7 +9,7 @@ import java.sql.*;
 public class DBUtil {
     private static String driverStr = "com.mysql.cj.jdbc.Driver";
 
-    private static String connectionStr = "jdbc:mysql://localhost:3306/web?serverTimezone=UTC";
+    private static String connectionStr = "jdbc:mysql://localhost:3306/mysql?serverTimezone=UTC";
 
     private static String username = "root";
     private static String password = "201269";

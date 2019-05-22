@@ -23,7 +23,7 @@
 				<td><b>Total Cost</b></td>
 			</tr>
 
-			<c:forEach var="cartItem" items="${actionBean.cart.cartItems}">
+			<c:forEach var="cartItem" items="${session.cart.cartItems}">
 				<tr>
 					<td><stripes:link
 						beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"

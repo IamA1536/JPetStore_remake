@@ -1,6 +1,8 @@
+document.getElementById("btn").onclick = function (obj) {
 
-document.getElementById("btn").onclick = function () {
-    // 获取img元素
-    // 为了让浏览器发送请求到servlet, 所以一定要改变src
-    document.getElementsByTagName("img")[0].src = "verifycode?time=" + new Date().getTime();
+    var timenow = new Date().getTime();
+    //每次请求需要一个不同的参数，否则可能会返回同样的验证码
+    //这和浏览器的缓存机制有关系，也可以把页面设置为不缓存，这样就不用这个参数了。
+    obj.src = "securityCode.action?d=" + timenow;
+    
 };

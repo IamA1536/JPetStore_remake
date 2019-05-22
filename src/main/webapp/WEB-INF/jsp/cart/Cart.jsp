@@ -9,7 +9,7 @@
 <div id="Catalog">
     <div id="Cart">
         <h2>Shopping Cart</h2>
-        <form action="updatecartquantities" method="post">
+        <form action="" method="post">
             <table>
                 <tr>
                     <th><b>Item ID</b></th>
@@ -21,12 +21,12 @@
                     <th><b>Total Cost</b></th>
 
                 </tr>
-                <c:if test="${sessionScope.cart.numberOfItems == 0}">
+                <s:if test="#session.cart.numberOfItems == 0">
                     <tr>
                         <td colspan="8"><b>Your cart is empty.</b></td>
                     </tr>
-                </c:if>
-                <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
+                </s:if>
+                <s:iterator var="cartItem" value="#session.cart.cartItems">
                     <tr>
                         <td>
                             <a href="" id="product">${cartItem.item.itemId}</a>
@@ -52,19 +52,19 @@
                         </td>
                         <td>
                             <a id="Remove" class="Button" name="remove"
-                               href="removeitemfromcart?workingItemId=${cartItem.item.itemId}&account=${sessionScope.account}">
+                               href="removeitemfromcart?workingItemId=${cartItem.item.itemId}">
                                 Remove
                             </a>
                         </td>
                     </tr>
-                </c:forEach>
+                </s:iterator>
                 <tr>
                     <td colspan="7">Sub Total:<fmt:formatNumber value="${sessionScope.cart.subTotal}"
                                                                 pattern="$#,##0.00"/>
                     </td>
                 </tr>
             </table>
-            <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
+            <s:iterator var="cartItem" value="#session.cart.cartItems">
                 <div>
                     <table id="choiceWindow" class=${cartItem.item.itemId}>
                         <tr>
@@ -75,12 +75,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <b><font size="4">
+                                <b><span style="font-size: medium; ">
                                         ${cartItem.item.attribute1}
                                         ${cartItem.item.attribute2} ${cartItem.item.attribute3}
                                         ${cartItem.item.attribute4} ${cartItem.item.attribute5}
                                         ${cartItem.item.product.name}
-                                </font>
+                                </span>
                                 </b>
                             </td>
                         </tr>
@@ -89,12 +89,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <c:if test="${cartItem.item.quantity <= 0}">
+                                <s:if test="#cartItem.item.quantity <= 0">
                                     Back ordered.
-                                </c:if>
-                                <c:if test="${cartItem.item.quantity > 0}">
+                                </s:if>
+                                <s:else>
                                     ${cartItem.item.quantity} in stock.
-                                </c:if>
+                                </s:else>
                             </td>
                         </tr>
                         <tr>
@@ -103,14 +103,13 @@
                     </table>
                 </div>
                 <div id="backGround"></div>
-            </c:forEach>
+            </s:iterator>
         </form>
-        <c:if test="${sessionScope.cart.numberOfItems > 0}">
-
-            <a class="Button" href="neworderform?cart=${sessionScope.cart}&account=${sessionScope.account}">
+        <s:if test="#session.cart.numberOfItems > 0">
+            <a class="Button" href="neworderform">
                 Proceed to Checkout
             </a>
-        </c:if>
+        </s:if>
     </div>
     <script src="js/Carts.js"></script>
     <div id="Separator">&nbsp;</div>

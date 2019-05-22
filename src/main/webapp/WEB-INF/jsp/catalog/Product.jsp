@@ -1,14 +1,14 @@
+<%@ taglib prefix="c" uri="/struts-tags" %>
 <%@ include file="../common/IncludeTop.jsp" %>
 
 
 <div id="BackLink">
-    <a href="vcategory?categoryId = ${sessionScope.product.categoryId}&account=${sessionScope.account}">Return
-        to ${sessionScope.product.categoryId}</a>
+    <a href="vcategory">Return
+        to ${session.product.categoryId}</a>
 </div>
 
 <div id="Catalog">
-
-    <h2>${sessionScope.product.name}</h2>
+    <h2>${session.product.name}</h2>
 
     <table>
         <tr>
@@ -18,7 +18,7 @@
             <th>List Price</th>
             <th>&nbsp;</th>
         </tr>
-        <c:forEach var="item" items="${sessionScope.itemList}">
+        <s:iterator var="item" value="#session.itemList">
             <tr>
                 <td>
                     <a class="button" id="product">${item.itemId}</a>
@@ -33,12 +33,12 @@
                                       pattern="$#,##0.00"/>
                 </td>
                 <td>
-                    <a class="Button" href="AddItemToCart?workingItemId=${item.itemId}&account=${sessionScope.account}">
+                    <a class="Button" href="AddItemToCart?workingItemId=${item.itemId}">
                         Add to Cart</a>
                 </td>
             </tr>
-        </c:forEach>
-        <c:forEach var="item" items="${sessionScope.itemList}">
+        </s:iterator>
+        <s:iterator var="item" value="#session.itemList">
             <div>
                 <table id="choiceWindow" class=${item.itemId}>
                     <tr>
@@ -49,12 +49,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <b><font size="4">
+                            <b><span style="font-size: medium; ">
                                     ${item.attribute1}
                                     ${item.attribute2} ${item.attribute3}
                                     ${item.attribute4} ${item.attribute5}
-                                    ${sessionScope.product.name}
-                            </font>
+                                    ${session.product.name}
+                            </span>
                             </b>
                         </td>
                     </tr>
@@ -63,12 +63,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <c:if test="${item.quantity <= 0}">
+                            <s:if test="#item.quantity <= 0">
                                 Back ordered.
-                            </c:if>
-                            <c:if test="${item.quantity > 0}">
+                            </s:if>
+                            <s:else>
                                 ${item.quantity} in stock.
-                            </c:if>
+                            </s:else>
                         </td>
                     </tr>
                     <tr>
@@ -77,7 +77,7 @@
                 </table>
             </div>
             <div id="backGround"></div>
-        </c:forEach>
+        </s:iterator>
     </table>
     <script src="js/Product.js"></script>
 </div>

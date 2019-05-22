@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,27 +38,28 @@
 
     <div id="Logo">
         <div id="LogoContent">
-            <a href="main"><img src="img/logo-topbar.gif"/></a>
+            <a href="main"><img src="images/logo-topbar.gif"/></a>
         </div>
     </div>
 
     <div id="Menu">
         <div id="MenuContent">
-            <a href="vcart?account=${sessionScope.account}">
-                <img align="middle" name="img_cart" src="img/cart.gif"/>
+            <a href="vcart">
+                <img align="middle" name="img_cart" src="images/cart.gif"/>
             </a>
-            <img align="middle" src="img/separator.gif"/>
+            <img align="middle" src="images/separator.gif"/>
 
-            <c:if test="${sessionScope.account == null}">
-                <a href="signonform">Sign In</a>
-            </c:if>
-            <c:if test="${sessionScope.account != null}">
+            <s:if test="#session.account==null">
+                <a href="loginForm.action">Log in</a>
+            </s:if>
+            <s:else>
                 <a href="signout">Sign Out</a>
-                <img align="middle" src="img/separator.gif"/>
-                <a href="editaccountform?account=${sessionScope.account}">${sessionScope.account.username}'s
-                    account</a>
-            </c:if>
-            <img align="middle" src="img/separator.gif"/>
+                <img align="middle" src="images/separator.gif"/>
+                <a href="editaccountform">
+                    <s:property value="#session.account.username"/>'s account
+                </a>
+            </s:else>
+            <img align="middle" src="images/separator.gif"/>
             <a href="help.html">?</a>
         </div>
     </div>
@@ -73,15 +74,15 @@
     </div>
 
     <div id="QuickLinks">
-        <a href="vcategory?categoryId=FISH&account=${sessionScope.account}"><img src="img/sm_fish.gif"/></a>
+        <a href="vcategory?categoryId=FISH"><img src="images/sm_fish.gif"/></a>
         <img src="img/separator.gif"/>
-        <a href="vcategory?categoryId=DOGS&account=${sessionScope.account}"><img src="img/sm_dogs.gif"/></a>
+        <a href="vcategory?categoryId=DOGS"><img src="images/sm_dogs.gif"/></a>
         <img src="img/separator.gif"/>
-        <a href="vcategory?categoryId=REPTILES&account=${sessionScope.account}"><img src="img/sm_reptiles.gif"/></a>
+        <a href="vcategory?categoryId=REPTILES"><img src="images/sm_reptiles.gif"/></a>
         <img src="img/separator.gif"/>
-        <a href="vcategory?categoryId=CATS&account=${sessionScope.account}"><img src="img/sm_cats.gif"/></a>
+        <a href="vcategory?categoryId=CATS"><img src="images/sm_cats.gif"/></a>
         <img src="img/separator.gif"/>
-        <a href="vcategory?categoryId=BIRDS&account=${sessionScope.account}"><img src="img/sm_birds.gif"/></a>
+        <a href="vcategory?categoryId=BIRDS"><img src="images/sm_birds.gif"/></a>
 
     </div>
 

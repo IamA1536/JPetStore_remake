@@ -30,35 +30,35 @@
 
             <tr>
                 <td>First name:</td>
-                <td><input type="text" name="billtofirstName" value="${sessionScope.account.firstName}"/></td>
+                <td><input type="text" name="billtofirstName" value="${session.account.firstName}"/></td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td><input type="text" name="billtolastName" value="${sessionScope.account.lastName}"/></td>
+                <td><input type="text" name="billtolastName" value="${session.account.lastName}"/></td>
             </tr>
             <tr>
                 <td>Address 1:</td>
-                <td><input type="text" size="40" name="billaddress1" value="${sessionScope.account.address1}"/></td>
+                <td><input type="text" size="40" name="billaddress1" value="${session.account.address1}"/></td>
             </tr>
             <tr>
                 <td>Address 2:</td>
-                <td><input type="text" size="40" name="billaddress2" value="${sessionScope.account.address2}"/></td>
+                <td><input type="text" size="40" name="billaddress2" value="${session.account.address2}"/></td>
             </tr>
             <tr>
                 <td>City:</td>
-                <td><input type="text" name="billcity" value="${sessionScope.account.city}"/></td>
+                <td><input type="text" name="billcity" value="${session.account.city}"/></td>
             </tr>
             <tr>
                 <td>State:</td>
-                <td><input type="text" size="4" name="billstate" value="${sessionScope.account.state}"/></td>
+                <td><input type="text" size="4" name="billstate" value="${session.account.state}"/></td>
             </tr>
             <tr>
                 <td>Zip:</td>
-                <td><input type="text" size="10" name="billzip" value="${sessionScope.account.zip}"/></td>
+                <td><input type="text" size="10" name="billzip" value="${session.account.zip}"/></td>
             </tr>
             <tr>
                 <td>Country:</td>
-                <td><input type="text" size="15" name="billcountry" value="${sessionScope.account.country}"/></td>
+                <td><input type="text" size="15" name="billcountry" value="${session.account.country}"/></td>
             </tr>
             <tr class="ship">
                 <td colspan=2>
@@ -74,35 +74,35 @@
             </tr>
             <tr>
                 <td>First name:</td>
-                <td><input type="text" name="shiptofirstName" value="${sessionScope.order.shipToFirstName}"/></td>
+                <td><input type="text" name="shiptofirstName" value="${session.order.shipToFirstName}"/></td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td><input type="text" name="shiptolastName" value="${sessionScope.order.shipToLastName}"/></td>
+                <td><input type="text" name="shiptolastName" value="${session.order.shipToLastName}"/></td>
             </tr>
             <tr>
                 <td>Address 1:</td>
-                <td><input type="text" size="40" name="shipaddress1" value="${sessionScope.account.address1}"/></td>
+                <td><input type="text" size="40" name="shipaddress1" value="${session.account.address1}"/></td>
             </tr>
             <tr>
                 <td>Address 2:</td>
-                <td><input type="text" size="40" name="shipaddress2" value="${sessionScope.account.address2}"/></td>
+                <td><input type="text" size="40" name="shipaddress2" value="${session.account.address2}"/></td>
             </tr>
             <tr>
                 <td>City:</td>
-                <td><input type="text" name="shipcity" value="${sessionScope.account.city}"/></td>
+                <td><input type="text" name="shipcity" value="${session.account.city}"/></td>
             </tr>
             <tr>
                 <td>State:</td>
-                <td><input type="text" size="4" name="shipstate" value="${sessionScope.account.state}"/></td>
+                <td><input type="text" size="4" name="shipstate" value="${session.account.state}"/></td>
             </tr>
             <tr>
                 <td>Zip:</td>
-                <td><input type="text" size="10" name="shipzip" value="${sessionScope.account.zip}"/></td>
+                <td><input type="text" size="10" name="shipzip" value="${session.account.zip}"/></td>
             </tr>
             <tr>
                 <td>Country:</td>
-                <td><input type="text" size="15" name="shipcountry" value="${sessionScope.account.country}"/></td>
+                <td><input type="text" size="15" name="shipcountry" value="${session.account.country}"/></td>
             </tr>
         </table>
 

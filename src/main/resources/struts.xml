@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="JPetStore" extends="struts-default">
+        <action name="loginForm" class="org.teamwork.jpetstore.action.AccountAction" method="loginForm">
+            <result type="dispatcher" name="input">/WEB-INF/jsp/account/Login.jsp</result>
+        </action>
+        <action name="login" class="org.teamwork.jpetstore.action.AccountAction" method="login">
+            <result type="dispatcher" name="input">/WEB-INF/jsp/account/Login.jsp</result>
+            <result type="dispatcher" name="success">/WEB-INF/jsp/catalog/Main.jsp</result>
+        </action>
+        <action name="main" class="org.teamwork.jpetstore.action.CatalogAction" method="main">
+            <result type="dispatcher" name="input">/WEB-INF/jsp/catalog/Main.jsp</result>
+        </action>
+
+        <action name="securityCode" class="org.teamwork.jpetstore.action.SecurityCodeAction">
+            <result type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">inputStream</param>
+            </result>
+        </action>
+        <action name="vcategory" class="org.teamwork.jpetstore.action.CatalogAction" method="category">
+            <result type="dispatcher" name="success">/WEB-INF/jsp/catalog/Category.jsp</result>
+        </action>
+        <action name="vproduct" class="org.teamwork.jpetstore.action.CatalogAction" method="product">
+            <result type="dispatcher" name="success">/WEB-INF/jsp/catalog/Product.jsp</result>
+        </action>
+        <action name="AddItemToCart" class="org.teamwork.jpetstore.action.CartAction" method="AddItemToCart">
+            <result type="dispatcher" name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
+            <result type="dispatcher" name="error">/WEB-INF/jsp/common/Error.jsp</result>
+            <result type="dispatcher" name="input">/WEB-INF/jsp/catalog/Product.jsp</result>
+        </action>
+        <action name="removeitemfromcart" class="org.teamwork.jpetstore.action.CartAction" method="removeitemfromcart">
+            <result type="dispatcher" name="error">/WEB-INF/jsp/common/Error.jsp</result>
+            <result type="dispatcher" name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
+        </action>
+        <action name="signout" class="org.teamwork.jpetstore.action.AccountAction" method="signout">
+            <result type="dispatcher" name="input">/WEB-INF/jsp/catalog/Main.jsp</result>
+        </action>
+        <action name="neworderform" class="org.teamwork.jpetstore.action.OrderAction" method="neworderform">
+            <result type="dispatcher" name="input">/WEB-INF/jsp/order/NewOrderForm.jsp</result>
+        </action>
+    </package>
+</struts>
