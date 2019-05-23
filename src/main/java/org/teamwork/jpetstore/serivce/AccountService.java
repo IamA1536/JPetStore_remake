@@ -1,7 +1,5 @@
 package org.teamwork.jpetstore.serivce;
 
-import com.mysql.cj.Session;
-import com.mysql.cj.xdevapi.SessionFactory;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.teamwork.jpetstore.domain.account.Account;

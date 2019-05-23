@@ -41,7 +41,7 @@ public class Order implements Serializable {
     private String cardType;
     private String locale;
     private String status;
-    private List<LineItem> lineItems = new ArrayList<LineItem>();
+    private List<LineItem> lineItems = new ArrayList<>();
 
     public int getOrderId() {
         return orderId;
@@ -266,28 +266,20 @@ public class Order implements Serializable {
 
 
         totalPrice = cart.getSubTotal();
-
-//        creditCard = "999 9999 9999 9999";
-//        expiryDate = "12/03";
-//        cardType = "Visa";
-//        courier = "UPS";
-//        locale = "CA";
-//        status = "P";
-
         Iterator<CartItem> i = cart.getAllCartItems();
         while (i.hasNext()) {
-            CartItem cartItem = (CartItem) i.next();
+            CartItem cartItem = i.next();
             addLineItem(cartItem);
         }
 
     }
 
-    public void addLineItem(CartItem cartItem) {
+    private void addLineItem(CartItem cartItem) {
         LineItem lineItem = new LineItem(lineItems.size() + 1, cartItem);
         addLineItem(lineItem);
     }
 
-    public void addLineItem(LineItem lineItem) {
+    private void addLineItem(LineItem lineItem) {
         lineItems.add(lineItem);
     }
 

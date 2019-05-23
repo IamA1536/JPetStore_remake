@@ -21,10 +21,9 @@ public class AccountAction extends ActionSupport implements Action, ModelDriven<
     private String username;
     private String password;
     private String vcstring;
-    private String error;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() {
         return INPUT;
     }
 
@@ -32,7 +31,7 @@ public class AccountAction extends ActionSupport implements Action, ModelDriven<
         return INPUT;
     }
 
-    public String login() throws Exception {
+    public String login() {
         AccountService accountService = new AccountService();
         String str2 = (String) session.get("random");
         //取得session保存中的字符串

@@ -5,16 +5,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.teamwork.jpetstore.domain.object.Category;
 import org.teamwork.jpetstore.domain.object.Item;
 import org.teamwork.jpetstore.domain.object.Product;
-import org.teamwork.jpetstore.persistence.CategoryDAO;
-import org.teamwork.jpetstore.persistence.ItemDAO;
 import org.teamwork.jpetstore.persistence.Mapper.CategoryMapper;
 import org.teamwork.jpetstore.persistence.Mapper.ItemMapper;
 import org.teamwork.jpetstore.persistence.Mapper.ProductMapper;
-import org.teamwork.jpetstore.persistence.ProductDAO;
 import org.teamwork.jpetstore.persistence.SessionFactoryUtil;
-import org.teamwork.jpetstore.persistence.impl.CategoryDAOImpl;
-import org.teamwork.jpetstore.persistence.impl.ItemDAOImpl;
-import org.teamwork.jpetstore.persistence.impl.ProductDAOImpl;
 
 import java.util.List;
 
@@ -22,18 +16,12 @@ import java.util.List;
  * @author A
  * Created by IamA#1536 on 2018/12/5 17:42
  */
-public class CatalogSerivce {
+public class CatalogService {
 
     private SqlSessionFactory sqlSessionFactory;
 
-//    private CategoryDAO categoryDAO;
-//    private ProductDAO productDAO;
-//    private ItemDAO itemDAO;
+    public CatalogService() {
 
-    public CatalogSerivce(){
-//        categoryDAO = new CategoryDAOImpl();
-//        productDAO = new ProductDAOImpl();
-//        itemDAO = new ItemDAOImpl();
     }
 
     public List<Category> getCategoryList() throws Exception {

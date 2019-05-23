@@ -1,11 +1,8 @@
 package org.teamwork.jpetstore.persistence;
 
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.teamwork.jpetstore.domain.account.Account;
-
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -16,9 +13,8 @@ import java.io.InputStream;
  */
 public class SessionFactoryUtil {
     private static String resource = "mybatis-config.xml";
-
     public static SqlSessionFactory getSqlSessionFactory() throws IOException {
-        SqlSessionFactory sqlSessionFactory = null;
+        SqlSessionFactory sqlSessionFactory;
         InputStream inputStream = Resources.getResourceAsStream(resource);
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         return sqlSessionFactory;

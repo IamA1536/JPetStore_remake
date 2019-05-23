@@ -11,10 +11,6 @@ import org.teamwork.jpetstore.persistence.Mapper.ItemMapper;
 import org.teamwork.jpetstore.persistence.Mapper.LineItemMapper;
 import org.teamwork.jpetstore.persistence.Mapper.OrderMapper;
 import org.teamwork.jpetstore.persistence.Mapper.SequenceMapper;
-import org.teamwork.jpetstore.persistence.impl.ItemDAOImpl;
-import org.teamwork.jpetstore.persistence.impl.LineItemDAOImpl;
-import org.teamwork.jpetstore.persistence.impl.OrderDAOImpl;
-import org.teamwork.jpetstore.persistence.impl.SequenceDAOImpl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,12 +20,12 @@ import java.util.Map;
  * @author A
  * Created by IamA#1536 on 2018/12/12 0:36
  */
-public class OrderSerive {
+public class OrderService {
 
     private SqlSessionFactory sqlSessionFactory;
 
 
-    public OrderSerive() {
+    public OrderService() {
     }
 
     public void insertOrder(Order order) throws Exception {
@@ -55,7 +51,7 @@ public class OrderSerive {
         orderMapper.insertOrder(order);
         orderMapper.insertOrderStatus(order);
         for (int i = 0; i < order.getLineItems().size(); i++) {
-            LineItem lineItem = (LineItem) order.getLineItems().get(i);
+            LineItem lineItem = order.getLineItems().get(i);
             lineItem.setOrderId(order.getOrderId());
             lineItemMapper.insertLineItem(lineItem);
         }
@@ -94,7 +90,7 @@ public class OrderSerive {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         SequenceMapper sequenceMapper = sqlSession.getMapper(SequenceMapper.class);
         Sequence sequence = new Sequence(name, -1);
-        sequence = (Sequence) sequenceMapper.getSequence(sequence);
+        sequence = sequenceMapper.getSequence(sequence);
         if (sequence == null) {
             throw new RuntimeException("Error: A null sequence was returned from the database (could not get next " + name
                     + " sequence).");

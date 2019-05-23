@@ -5,7 +5,7 @@ import com.opensymphony.xwork2.ActionContext;
 import org.teamwork.jpetstore.domain.object.Category;
 import org.teamwork.jpetstore.domain.object.Item;
 import org.teamwork.jpetstore.domain.object.Product;
-import org.teamwork.jpetstore.serivce.CatalogSerivce;
+import org.teamwork.jpetstore.serivce.CatalogService;
 
 import java.util.List;
 import java.util.Map;
@@ -17,15 +17,15 @@ import java.util.Map;
  */
 public class CatalogAction implements Action {
 
-    ActionContext actionContext = ActionContext.getContext();
-    Map session = actionContext.getSession();
+    private ActionContext actionContext = ActionContext.getContext();
+    private Map<String, Object> session = actionContext.getSession();
     private String productId;
     private String categoryId;
     private String keyword;
 
 
     @Override
-    public String execute() throws Exception {
+    public String execute() {
         return INPUT;
     }
 
@@ -34,10 +34,10 @@ public class CatalogAction implements Action {
     }
 
     public String product() {
-        CatalogSerivce catalogSerivce = new CatalogSerivce();
+        CatalogService catalogService = new CatalogService();
         try {
-            Product product = catalogSerivce.getProduct(productId);
-            List<Item> itemList = catalogSerivce.getItemListByProduct(productId);
+            Product product = catalogService.getProduct(productId);
+            List<Item> itemList = catalogService.getItemListByProduct(productId);
             this.session.put("product", product);
             this.session.put("itemList", itemList);
             return SUCCESS;
@@ -48,7 +48,7 @@ public class CatalogAction implements Action {
     }
 
     public String category() {
-        CatalogSerivce service = new CatalogSerivce();
+        CatalogService service = new CatalogService();
         try {
             Category category = service.getCategory(categoryId);
             List<Product> productList = service.getProductListByCategory(categoryId);
@@ -61,8 +61,8 @@ public class CatalogAction implements Action {
         return INPUT;
     }
 
-    public String search(){
-        CatalogSerivce service = new CatalogSerivce();
+    public String search() {
+        CatalogService service = new CatalogService();
         try {
             List<Product> productList = service.searchProductList(keyword);
             session.put("productList", productList);
