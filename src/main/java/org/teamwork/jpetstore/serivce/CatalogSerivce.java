@@ -1,11 +1,17 @@
 package org.teamwork.jpetstore.serivce;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.teamwork.jpetstore.domain.object.Category;
 import org.teamwork.jpetstore.domain.object.Item;
 import org.teamwork.jpetstore.domain.object.Product;
 import org.teamwork.jpetstore.persistence.CategoryDAO;
 import org.teamwork.jpetstore.persistence.ItemDAO;
+import org.teamwork.jpetstore.persistence.Mapper.CategoryMapper;
+import org.teamwork.jpetstore.persistence.Mapper.ItemMapper;
+import org.teamwork.jpetstore.persistence.Mapper.ProductMapper;
 import org.teamwork.jpetstore.persistence.ProductDAO;
+import org.teamwork.jpetstore.persistence.SessionFactoryUtil;
 import org.teamwork.jpetstore.persistence.impl.CategoryDAOImpl;
 import org.teamwork.jpetstore.persistence.impl.ItemDAOImpl;
 import org.teamwork.jpetstore.persistence.impl.ProductDAOImpl;
@@ -18,46 +24,72 @@ import java.util.List;
  */
 public class CatalogSerivce {
 
-    private CategoryDAO categoryDAO;
-    private ProductDAO productDAO;
-    private ItemDAO itemDAO;
+    private SqlSessionFactory sqlSessionFactory;
+
+//    private CategoryDAO categoryDAO;
+//    private ProductDAO productDAO;
+//    private ItemDAO itemDAO;
 
     public CatalogSerivce(){
-        categoryDAO = new CategoryDAOImpl();
-        productDAO = new ProductDAOImpl();
-        itemDAO = new ItemDAOImpl();
+//        categoryDAO = new CategoryDAOImpl();
+//        productDAO = new ProductDAOImpl();
+//        itemDAO = new ItemDAOImpl();
     }
 
     public List<Category> getCategoryList() throws Exception {
-        return categoryDAO.getCategoryList();
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        CategoryMapper categoryMapper = sqlSession.getMapper(CategoryMapper.class);
+        return categoryMapper.getCategoryList();
     }
 
     public Category getCategory(String categoryId) throws Exception {
-        return categoryDAO.getCategory(categoryId);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        CategoryMapper categoryMapper = sqlSession.getMapper(CategoryMapper.class);
+        return categoryMapper.getCategory(categoryId);
     }
 
     public Product getProduct(String productId) throws Exception {
-        return productDAO.getProduct(productId);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
+        return productMapper.getProduct(productId);
     }
 
     public List<Product> getProductListByCategory(String categoryId) throws Exception {
-        return productDAO.getProductListByCategory(categoryId);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
+        return productMapper.getProductListByCategory(categoryId);
     }
 
     // TODO enable using more than one keyword
     public List<Product> searchProductList(String keyword) throws Exception {
-        return productDAO.searchProductList("%" + keyword.toLowerCase() + "%");
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
+        return productMapper.searchProductList("%" + keyword.toLowerCase() + "%");
     }
 
     public List<Item> getItemListByProduct(String productId) throws Exception {
-        return itemDAO.getItemListByProduct(productId);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
+        return itemMapper.getItemListByProduct(productId);
     }
 
     public Item getItem(String itemId) throws Exception {
-        return itemDAO.getItem(itemId);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
+        return itemMapper.getItem(itemId);
     }
 
     public boolean isItemInStock(String itemId) throws Exception {
-        return itemDAO.getInventoryQuantity(itemId) > 0;
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
+        return itemMapper.getInventoryQuantity(itemId) > 0;
     }
 }

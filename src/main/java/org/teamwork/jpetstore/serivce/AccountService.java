@@ -1,46 +1,65 @@
 package org.teamwork.jpetstore.serivce;
 
+import com.mysql.cj.Session;
+import com.mysql.cj.xdevapi.SessionFactory;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.teamwork.jpetstore.domain.account.Account;
-import org.teamwork.jpetstore.persistence.AccountDAO;
-import org.teamwork.jpetstore.persistence.impl.AccountDAOImpl;
+import org.teamwork.jpetstore.persistence.Mapper.AccountMapper;
+import org.teamwork.jpetstore.persistence.SessionFactoryUtil;
 
 /**
  * @author A
  * Created by IamA#1536 on 2018/12/9 22:56
  */
 public class AccountService {
-    private AccountDAO accountDAO;
+    private SqlSessionFactory sqlSessionFactory;
 
     public AccountService() {
-        accountDAO = new AccountDAOImpl();
     }
 
     public Account getAccount(String username) throws Exception {
-        return accountDAO.getAccountByUsername(username);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
+        return accountMapper.getAccountByUsername(username);
     }
 
     public Account getAccount(Account account) throws Exception {
-        return accountDAO.getAccountByUsernameAndPassword(account);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
+        return accountMapper.getAccountByUsernameAndPassword(account);
     }
 
     public Account getAccount(String username, String password) throws Exception {
         Account account = new Account();
         account.setUsername(username);
         account.setPassword(password);
-        return accountDAO.getAccountByUsernameAndPassword(account);
+
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
+        return accountMapper.getAccountByUsernameAndPassword(account);
     }
 
     public void insertAccount(Account account) throws Exception {
-        accountDAO.insertAccount(account);
-        accountDAO.insertProfile(account);
-        accountDAO.insertSignon(account);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
+        accountMapper.insertAccount(account);
+        accountMapper.insertProfile(account);
+        accountMapper.insertSignon(account);
     }
 
     public void updateAccount(Account account) throws Exception {
-        accountDAO.updateAccount(account);
-        accountDAO.updateProfile(account);
+        sqlSessionFactory = SessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
+        accountMapper.updateAccount(account);
+        accountMapper.updateProfile(account);
         if (account.getPassword() != null && account.getPassword().length() > 0) {
-            accountDAO.updateSignon(account);
+            accountMapper.updateSignon(account);
         }
     }
 }

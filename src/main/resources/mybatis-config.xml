@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- changes from the defaults -->
+        <setting name="lazyLoadingEnabled" value="false"/>
+
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="account" type="org.teamwork.jpetstore.domain.account.Account"/>
+        <typeAlias alias="category" type="org.teamwork.jpetstore.domain.object.Category"/>
+        <typeAlias alias="item" type="org.teamwork.jpetstore.domain.object.Item"/>
+        <typeAlias alias="lineItem" type="org.teamwork.jpetstore.domain.orders.LineItem"/>
+        <typeAlias alias="order" type="org.teamwork.jpetstore.domain.orders.Order"/>
+        <typeAlias alias="product" type="org.teamwork.jpetstore.domain.object.Product"/>
+        <typeAlias alias="sequence" type="org.teamwork.jpetstore.domain.extra.Sequence"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mysql?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="201269"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mappers/AccountMapper.xml"/>
+        <mapper resource="mappers/ProductMapper.xml"/>
+        <mapper resource="mappers/CategoryMapper.xml"/>
+        <mapper resource="mappers/ItemMapper.xml"/>
+        <mapper resource="mappers/LineItemMapper.xml"/>
+        <mapper resource="mappers/OrderMapper.xml"/>
+        <mapper resource="mappers/SequenceMapper.xml"/>
+    </mappers>
+</configuration>

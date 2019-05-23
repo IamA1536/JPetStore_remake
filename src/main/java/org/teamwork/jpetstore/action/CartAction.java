@@ -2,7 +2,6 @@ package org.teamwork.jpetstore.action;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
-import com.sun.org.apache.bcel.internal.generic.ACONST_NULL;
 import org.teamwork.jpetstore.domain.account.Account;
 import org.teamwork.jpetstore.domain.carts.Cart;
 import org.teamwork.jpetstore.domain.carts.CartItem;
