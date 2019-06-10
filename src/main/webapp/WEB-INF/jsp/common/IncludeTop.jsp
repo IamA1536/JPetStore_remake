@@ -75,13 +75,13 @@
 
     <div id="QuickLinks">
         <a href="vcategory?categoryId=FISH"><img src="images/sm_fish.gif"/></a>
-        <img src="img/separator.gif"/>
+        <img src="images/separator.gif"/>
         <a href="vcategory?categoryId=DOGS"><img src="images/sm_dogs.gif"/></a>
-        <img src="img/separator.gif"/>
+        <img src="images/separator.gif"/>
         <a href="vcategory?categoryId=REPTILES"><img src="images/sm_reptiles.gif"/></a>
-        <img src="img/separator.gif"/>
+        <img src="images/separator.gif"/>
         <a href="vcategory?categoryId=CATS"><img src="images/sm_cats.gif"/></a>
-        <img src="img/separator.gif"/>
+        <img src="images/separator.gif"/>
         <a href="vcategory?categoryId=BIRDS"><img src="images/sm_birds.gif"/></a>
 
     </div>
