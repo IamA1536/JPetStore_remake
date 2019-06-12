@@ -4,9 +4,13 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import org.teamwork.jpetstore.domain.account.Account;
 import org.teamwork.jpetstore.domain.carts.Cart;
+import org.teamwork.jpetstore.domain.carts.CartItem;
 import org.teamwork.jpetstore.domain.object.Item;
 import org.teamwork.jpetstore.serivce.CatalogService;
 
+import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -66,7 +70,36 @@ public class CartAction implements Action {
         } else return SUCCESS;
     }
 
-    public String vcart(){
+//    public String TotalPrice() {
+//        String itemId = request.getParameter("itemId");
+//        int quantity = Integer.parseInt(request.getParameter("quantity"));
+//        Cart cart = (Cart) session.get("cart");
+//
+//        cart.setQuantityByItemId(itemId, quantity);
+//        session.put("cart", cart);
+//        BigDecimal sub_total = cart.getSubTotal();
+//        BigDecimal total_cost;
+//        String responseText = null;
+//        List<CartItem> cartItemList = cart.getCartItemList();
+//        for (int i = 0; i < cartItemList.size(); i++) {
+//            String a = cartItemList.get(i).getItem().getItemId();
+//            if (cartItemList.get(i).getItem().getItemId().equals(itemId)) {
+//                total_cost = cartItemList.get(i).getTotal();
+//                responseText = itemId + "," + total_cost + "," + sub_total;
+//            }
+//        }
+//        response.setContentType("text/xml;charset=utf-8");
+//
+//        if (responseText != null) {
+//            PrintWriter out = response.getWriter();
+//            out.println(responseText);
+//            out.flush();
+//            out.close();
+//        }
+//        return INPUT;
+//    }
+
+    public String vcart() {
         Cart cart = (Cart) session.get("cart");
         Account account = (Account) session.get("account");
         if (account == null) {

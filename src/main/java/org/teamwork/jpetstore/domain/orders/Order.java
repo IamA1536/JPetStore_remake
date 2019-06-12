@@ -261,6 +261,8 @@ public class Order implements Serializable {
 
     public void initOrder(Account account, Cart cart) {
 
+
+
         username = account.getUsername();
         orderDate = new Date();
 

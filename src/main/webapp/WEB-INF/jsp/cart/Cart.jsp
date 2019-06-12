@@ -58,7 +58,7 @@
                 </tr>
             </s:iterator>
             <tr>
-                <td colspan="7">Sub Total:<fmt:formatNumber value="${sessionScope.cart.subTotal}"
+                <td colspan="7">Sub Total:<fmt:formatNumber value="#session.cart.subTotal"
                                                             pattern="$#,##0.00"/>
                 </td>
             </tr>

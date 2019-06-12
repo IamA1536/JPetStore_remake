@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -18,6 +18,8 @@
 
     <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1st November 2002), see www.w3.org"/>
     <title>JPetStore By A</title>
+    <a href="changelan.action?request_locale=zh_CN">简体中文</a>&nbsp;&nbsp;&nbsp;
+    <a href="changelan.action?request_locale=en_US">English</a>
     <meta content="text/html; charset=windows-1252"
           http-equiv="Content-Type"/>
     <meta http-equiv="Cache-Control" content="max-age=0"/>
@@ -50,10 +52,10 @@
             <img align="middle" src="images/separator.gif"/>
 
             <s:if test="#session.account==null">
-                <a href="loginForm.action">Log in</a>
+                <a href="loginForm.action"><s:text name="form.li"/></a>
             </s:if>
             <s:else>
-                <a href="signout">Sign Out</a>
+                <a href="signout"><s:text name="form.so"/></a>
                 <img align="middle" src="images/separator.gif"/>
                 <a href="editaccountform">
                     <s:property value="#session.account.username"/>'s account
@@ -66,10 +68,8 @@
 
     <div id="Search">
         <div id="SearchContent">
-            <form action="search" method="post">
-                <input id="SearchInput" type="text" name="keyword" size="14"/>
+                <a href="/search" ><input id="SearchInput" type="text" name="keyword" size="14"/></a>
                 <input type="submit" name="searchProducts" value="Search"/>
-            </form>
         </div>
     </div>
 

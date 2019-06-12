@@ -38,6 +38,7 @@
                 </td>
             </tr>
         </s:iterator>
+
         <s:iterator var="item" value="#session.itemList">
             <div>
                 <table id="choiceWindow" class=${item.itemId}>

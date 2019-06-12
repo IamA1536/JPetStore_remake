@@ -39,7 +39,7 @@ public class OrderAction implements Action, ModelDriven<Order> {
     }
 
     public String confirmorder() {
-        System.out.println(order.getOrderId() + " " + order.getShipToLastName());
+//        System.out.println(order.getOrderId() + " " + order.getShipToLastName());
         this.session.put("order", this.order);
         return SUCCESS;
     }

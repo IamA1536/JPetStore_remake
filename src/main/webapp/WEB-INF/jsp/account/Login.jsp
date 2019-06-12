@@ -2,23 +2,23 @@
 
 <div id="Catalog">
     <form action="login" method="post">
-        <p>Please enter your username and password.</p>
+        <p><s:text name="form.pey"/>.</p>
         <p>
             <tr>
                 <td>
-                    Username:<input type="text" name="username" value=""><br/>
+                    <s:text name="form.username"/>:<input type="text" name="username" value=""><br/>
                 </td>
                 <td>
-                    Password:<input type="password" name="password" value=""><br/>
+                    <s:text name="form.password"/>:<input type="password" name="password" value=""><br/>
                 </td>
                 <td>
-                    VerifyCode:<input type="text" name="vcstring">
+                    <s:text name="form.verifyCode"/>:<input type="text" name="vcstring">
                     <br/>
                     <%--<img src="img/vc.gif">--%>
                     <img src="securityCode.action" onclick="">
                     <%--<br/>--%>
                     <a id="btn" href="">
-                        <small>change to another one</small>
+                        <small><s:text name="form.ctao" /></small>
                     </a>
                     <span style="color: red; ">
                         ${session.imageMess}
@@ -31,9 +31,9 @@
         <input type="submit" name="login" value="Login"/>
     </form>
 
-    Need a username and password?
+    <s:text name="form.Nauap" />?
     <a href="newaccountform">
-        Register Now!
+        <s:text name="form.rn" />!
     </a>
 </div>
 
