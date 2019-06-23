@@ -68,8 +68,10 @@
 
     <div id="Search">
         <div id="SearchContent">
-                <a href="/search" ><input id="SearchInput" type="text" name="keyword" size="14"/></a>
+            <form action="search" method="post">
+                <input id="SearchInput" type="text" name="keyword" size="14"/>
                 <input type="submit" name="searchProducts" value="Search"/>
+            </form>
         </div>
     </div>
 

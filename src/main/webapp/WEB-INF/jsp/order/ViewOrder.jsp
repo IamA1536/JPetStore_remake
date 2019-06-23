@@ -106,49 +106,50 @@
         <tr>
             <td colspan="2">Status: <s:property value="#session.order.status"/></td>
         </tr>
-        <tr>
-            <td colspan="2">
-                <table>
-                    <tr>
-                        <th>Item ID</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total Cost</th>
-                    </tr>
-                    <s:iterator var="lineItem" value="#session.order.lineItems">
-                        <tr>
-                            <td>
-                                <a href="vitem?itemId=${lineItem.item.itemId}&productId= ${lineItem.item.product.productId}">
-                                        ${lineItem.item.itemId}
-                                </a>
-                            </td>
-                            <td><s:if test="${lineItem.item != null}">
-                                ${lineItem.item.attribute1}
-                                ${lineItem.item.attribute2}
-                                ${lineItem.item.attribute3}
-                                ${lineItem.item.attribute4}
-                                ${lineItem.item.attribute5}
-                                ${lineItem.item.product.name}
-                            </s:if>
-                                <s:else>
-                                    <i>{description unavailable}</i>
-                                </s:else></td>
+<%--        <tr>--%>
+<%--            <td colspan="2">--%>
+<%--                <table>--%>
+<%--                    <tr>--%>
+<%--                        <th>Item ID</th>--%>
+<%--                        <th>Description</th>--%>
+<%--                        <th>Quantity</th>--%>
+<%--                        <th>Price</th>--%>
+<%--                        <th>Total Cost</th>--%>
+<%--                    </tr>--%>
+<%--                    <s:iterator var="lineItem" value="#session.order.lineItems">--%>
+<%--                        <tr>--%>
+<%--                            <td>--%>
+<%--                                <a href="vitem?itemId=${lineItem.item.itemId}&productId= ${lineItem.item.product.productId}">--%>
+<%--                                        ${lineItem.item.itemId}--%>
+<%--                                </a>--%>
+<%--                            </td>--%>
+<%--                            <td><s:if test="${lineItem.item != null}">--%>
+<%--                                ${lineItem.item.attribute1}--%>
+<%--                                ${lineItem.item.attribute2}--%>
+<%--                                ${lineItem.item.attribute3}--%>
+<%--                                ${lineItem.item.attribute4}--%>
+<%--                                ${lineItem.item.attribute5}--%>
+<%--                                ${lineItem.item.product.name}--%>
+<%--                            </s:if>--%>
+<%--                                <s:else>--%>
+<%--                                    <i>{description unavailable}</i>--%>
+<%--                                </s:else></td>--%>
 
-                            <td>${lineItem.quantity}</td>
-                            <td><fmt:formatNumber value="${lineItem.unitPrice}"
-                                                  pattern="$#,##0.00"/></td>
-                            <td><fmt:formatNumber value="${lineItem.total}"
-                                                  pattern="$#,##0.00"/></td>
-                        </tr>
-                    </s:iterator>
-                    <tr>
-                        <th colspan="5">Total: <fmt:formatNumber
-                                value="${session.order.totalPrice}" pattern="$#,##0.00"/></th>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+<%--                            <td>${lineItem.quantity}</td>--%>
+<%--                            <td><fmt:formatNumber value="${lineItem.unitPrice}"--%>
+<%--                                                  pattern="$#,##0.00"/></td>--%>
+<%--                            <td><fmt:formatNumber value="${lineItem.total}"--%>
+<%--                                                  pattern="$#,##0.00"/></td>--%>
+<%--                        </tr>--%>
+<%--                    </s:iterator>--%>
+<%--                    <tr>--%>
+<%--                        <th colspan="5">Total: <fmt:formatNumber--%>
+<%--                                value="${session.order.totalPrice}" pattern="$#,##0.00"/></th>--%>
+<%--                    </tr>--%>
+<%--                </table>--%>
+<%--            </td>--%>
+<%--        </tr>--%>
+
     </table>
 </div>
 

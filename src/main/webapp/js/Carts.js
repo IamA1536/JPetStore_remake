@@ -1,3 +1,5 @@
+var flag = true
+
 $(document).ready(function () {
     prepared()
     suspension()
@@ -38,9 +40,12 @@ function removeChange() {
 
     $r.mouseup(function () {
         clearTimeout(timeout)
-        $("#Remove").parent().show(1000, function () {
-        })
-        changeStatus()
+        if (flag) {
+            flag = false
+            $("#Remove").parent().show(1000, function () {
+            })
+            changeStatus()
+        }
     })
 }
 
@@ -58,49 +63,46 @@ function changeStatus() {
             $("#Remove").parent().hide(1000, function () {
             })
         })
+        flag = true
     })
 }
 
 var xmlHttpRequest;
 var id;
+
 function creatXMLHttpRequest() {
-    if(window.XMLHttpRequest)
-    {
-        xmlHttpRequest=new XMLHttpRequest();
-    }
-    else if(window.ActiveXObject)
-    {
-        xmlHttpRequest=new ActiveXObject("Msxml2.XMLHTTP");
-    }
-    else
-    {
-        xmlHttpRequest=new ActiveXObject("Microsoft.XMLHTTP");
+    if (window.XMLHttpRequest) {
+        xmlHttpRequest = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        xmlHttpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+    } else {
+        xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
     }
 }
 
 function processResponse() {
-    if(xmlHttpRequest.readyState==4)
-    {
-        if(xmlHttpRequest.status==200)
-        {
+    if (xmlHttpRequest.readyState == 4) {
+        if (xmlHttpRequest.status == 200) {
 
-            var text=xmlHttpRequest.responseText;
-            var result=text.split(",");
-            var el2=document.getElementById(id+"total");
-            el2.innerHTML=result[1];
-            var el3=document.getElementById("subtotal");
-            el3.innerHTML="Sub Total:"+result[2]+"<input type=\"submit\" value=\"Update Cart\"/>";
+            var text = xmlHttpRequest.responseText;
+            var result = text.split(",");
+            var el2 = document.getElementById(id + "total");
+            el2.innerHTML = result[1];
+            var el3 = document.getElementById("subtotal");
+            el3.innerHTML = "Sub Total:" + result[2] + "<input type=\"submit\" value=\"Update Cart\"/>";
         }
     }
 }
+
 function sendRequest(url) {
     creatXMLHttpRequest();
-    xmlHttpRequest.open("GET",url,true);
-    xmlHttpRequest.onreadystatechange=processResponse;
+    xmlHttpRequest.open("GET", url, true);
+    xmlHttpRequest.onreadystatechange = processResponse;
     xmlHttpRequest.send(null);
 }
+
 function update(ID) {
-    id=ID;
-    var quantity=document.getElementById(ID).value;
-    sendRequest("totalPrice?itemId="+ID+"&&quantity="+quantity);
+    id = ID;
+    var quantity = document.getElementById(ID).value;
+    sendRequest("totalPrice?itemId=" + ID + "&&quantity=" + quantity);
 }
